@@ -24,7 +24,7 @@ namespace Lua_Byte_Deobfuscator
 		static void ReadFile(string file)
 		{
 			string text = File.ReadAllText(file);
-			text = text.Replace("load", "print");
+			text = text.Replace("loadstring", "print");
             text = text.Replace("()", "");
             File.WriteAllText(file, text);
 
@@ -40,7 +40,7 @@ namespace Lua_Byte_Deobfuscator
             Console.SetCursorPosition(0, Console.CursorTop - 1);
             ClearCurrentConsoleLine();
             string text = File.ReadAllText(filewithprint);
-            text = text.Replace("print", "load");
+            text = text.Replace("print", "loadstring");
             text = text.Replace(")", ")()");
             File.WriteAllText(filewithprint, text);
             Console.ReadKey(true);
